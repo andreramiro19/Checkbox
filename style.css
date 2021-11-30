@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #43aa8b;
+    --red: #EC4D60;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+label {
+    position: relative;
+    width: 160px;
+    height: 80px;
+    cursor: pointer;
+}
+label input {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+}
+label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--red);
+    border-radius: 80px;
+    transition: all ease .5s;
+    box-shadow: 0 0px 0px var(--red);
+}
+label input:checked ~ span {
+    background: var(--green);
+    box-shadow: 0 0px 0px var(--green);
+}
+
+label span i{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 72px;
+    height: 72px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    transition: all ease .5s;
+}
+
+label input:checked ~ span i {
+    transform: rotate(360deg);
+    transition: all ease .5s;
+}
+
+label input:checked ~ span i {
+    left: 84px;
+}
+
+label span i::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 35px 0 0 var(--red);
+    transition: all ease .5s;
+}
+
+label input:checked ~ span i::before {
+    background: var(--green);
+    box-shadow: 35px 0 0 var(--green);
+}
+
+label span i::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 6px;
+    border-radius: 6px;
+    background: var(--red);
+    transition: all ease .5s;
+}
+
+label input:checked ~ span i::after {
+    bottom: 12px;
+    height: 15px;
+    border-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: var(--green);
+}
